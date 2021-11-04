@@ -15,7 +15,7 @@ BX4-17, BMW X4 xDrive20i (2019) , Sony: 2.899
 B3-GT18, BMW 320i GT (2018), Bose: 1.799
 B3-S19, BMW 320i Sportline (2019), Bose: 1.899
 B5-X19, BMW X5 xDrive40i XLine (2019), Bose: 4.199
-B5-X20, BMW X5 xDrive40i XLine (2020), Bose: 4.239	Information in a line:
+B5-X20, BMW X5 xDrive40i XLine (2020), Bose: 4.239
 <ID, brand name, sound brand: price>
 ```
 #### File cars.txt	Description
@@ -26,24 +26,25 @@ C03, B7-MS, orange, F12347, E12347
 C04, B7-MS20, white, F12348, E12348
 C05, B7-PE, pink, F12349, E12349 
 C06, B5-18, pink, F12350, E12350
-C07, B5-X20, grey, F12351, E12351	Information of a line:
+C07, B5-X20, grey, F12351, E12351
 <ID, brand ID, color, frame ID, engine ID>
 ```
 
 ## Problem requirements
+
+### The manager of the showroom needs a Java console application in which operations must be supported:
 ```
-The manager of the showroom needs a Java console application in which operations must be supported:
-  1. List all brands
-  2. Add a new brand
-  3. Search a brand based on its ID
-  4. Update a brand
-  5. Save brands to the file, named brands.txt
-  6. List all cars in ascending order of brand names
-  7. List cars based on a part of an input brand name
-  8. Add a car
-  9. Remove a car based on its ID
-  10. Update a car based on its ID
-  11. Save cars to file, named cars.txt
+1. List all brands
+2. Add a new brand
+3. Search a brand based on its ID
+4. Update a brand
+5. Save brands to the file, named brands.txt
+6. List all cars in ascending order of brand names
+7. List cars based on a part of an input brand name
+8. Add a car
+9. Remove a car based on its ID
+10. Update a car based on its ID
+11. Save cars to file, named cars.txt
 ```
 
 ## Constraints
