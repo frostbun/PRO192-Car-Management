@@ -7,8 +7,6 @@ public class Manager {
 
     public static void main(String[] args) {
 
-        BrandList list = new BrandList("brands.txt", "cars.txt");
-
         String title = "==========================Car=Manager===========================";
         List<String> option = new ArrayList<>();
         option.add("Exit");
@@ -24,8 +22,9 @@ public class Manager {
         option.add("Update a Car by Id");
         option.add("Save Cars");
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int choice;
+        BrandList list = new BrandList("brands.txt", "cars.txt");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         while((choice = Menu.getChoice(reader, title, option)) != 0) {
             System.out.println("================================================================");
             if(choice == 1) {
@@ -34,7 +33,7 @@ public class Manager {
                 for(Brand brand:brandList) {
                     System.out.println(brand);
                 }
-                if(brandList.size() == 0) {
+                if(brandList.isEmpty()) {
                     System.out.println("Empty!");
                 }
             }
@@ -85,7 +84,7 @@ public class Manager {
                 for(Car car:carList) {
                     System.out.println(car);
                 }
-                if(carList.size() == 0) {
+                if(carList.isEmpty()) {
                     System.out.println("Empty!");
                 }
             }
@@ -94,7 +93,7 @@ public class Manager {
                 for(Car car:carList) {
                     System.out.println(car);
                 }
-                if(carList.size() == 0) {
+                if(carList.isEmpty()) {
                     System.out.println("Brand Name not exist!");
                 }
             }

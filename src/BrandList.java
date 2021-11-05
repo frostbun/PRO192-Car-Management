@@ -3,7 +3,6 @@ import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.util.List;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Collections;
 
@@ -14,7 +13,7 @@ public class BrandList {
     private String carFile;
 
     public BrandList(String brandFile, String carFile) {
-        brandList = new ArrayList<>();
+        brandList = new LinkedList<>();
         this.brandFile = brandFile;
         this.carFile = carFile;
         loadBrand();
@@ -52,7 +51,15 @@ public class BrandList {
     public boolean updateCar(String id, String brandId, String color, String frameId, String engineId) {
         Brand brand = getBrandById(brandId);
         Car car = getCarById(id);
-        if(brand == null || car == null || getCarByFrameId(frameId) != car || getCarByEngineId(engineId) != car) {
+        Car car1 = getCarByFrameId(frameId);
+        Car car2 = getCarByEngineId(engineId);
+        if(brand == null || car == null) {
+            return false;
+        }
+        if(car1 != car && car1 != null) {
+            return false;
+        }
+        if(car2 != car && car2 != null) {
             return false;
         }
         car.setBrand(brand);
@@ -123,21 +130,24 @@ public class BrandList {
         return ret;
     }
 
-    public void loadBrand() {
+    private void loadBrand() {
         try {
             new File(brandFile).createNewFile();
             BufferedReader reader = new BufferedReader(new FileReader(brandFile));
             String line;
             while((line = reader.readLine()) != null) {
                 String[] param = line.split("[,:] ");
-                addBrand(param[0], param[1], param[2], Double.parseDouble(param[3]));
+                try {
+                    addBrand(param[0], param[1], param[2], Double.parseDouble(param[3]));
+                }
+                catch(NumberFormatException e) {}
             }
             reader.close();
         }
         catch(Exception e) {}
     }
 
-    public void loadCar() {
+    private void loadCar() {
         try {
             new File(carFile).createNewFile();
             BufferedReader reader = new BufferedReader(new FileReader(carFile));

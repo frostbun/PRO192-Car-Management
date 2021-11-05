@@ -12,7 +12,7 @@ public class Menu {
             try {
                 System.out.print(message);
                 String ret = reader.readLine();
-                if(!ret.matches(pattern) || ret.matches(",:")) {
+                if(!ret.matches(pattern) || ret.contains(",") || ret.contains(":")) {
                     throw new Exception();
                 }
                 return ret;
