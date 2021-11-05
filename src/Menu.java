@@ -60,6 +60,6 @@ public class Menu {
         for(int i=0; i<option.size(); ++i) {
             System.out.format("%d. %s\n", i, option.get(i));
         }
-        return getInteger(reader, "Your choice: ", 0, option.size());
+        return getInteger(reader, "Your choice: ", 0, option.size()-1);
     }
 }
